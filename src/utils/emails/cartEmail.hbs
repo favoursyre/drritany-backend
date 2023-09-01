@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css?family=Inter');
+      html {
+        padding: 0px;
+        overflow-x: hidden;
+        /* border: 2px solid yellow; */
+        width: 100%;
+        height: 120%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        font-family: 'Inter';
+      }
+
+      body {
+        position: absolute;
+        /* border: 2px solid blue; */
+        width: 95%;
+        height: 95%;
+      }
+
+      main {
+        /* align-items: center; */
+        position: relative;
+        border: 2px solid blue;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 95%;
+        height: 100%;
+        padding: 1% 2.5%;
+      }
+
+      .logo {
+        border: 1px solid red;
+      }
+
+      .brief {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+        border: 2px solid yellow;
+        top: 2%;
+        height: 25%;
+      }
+
+      .message {
+        border: 1px solid red;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 15px;
+      }
+
+      .brief_1 {
+        font-size: 30px;
+      }
+
+      #brief_3 {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        border: 2px solid blue;
+        justify-content: flex-end;
+        gap: 0px;
+        color: rgb(154, 158, 166);
+        
+      }
+
+      #brief_3 hr {
+        border: 2px solid blue;
+      }
+
+      #orderDate {
+        font-size: 14px;
+      }
+
+      #orderDate span {
+        font-size: 16px;
+        color: black;
+      }
+
+      #deliveryDate {
+        color: rgb(18, 183, 106);
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .order_cart {
+        border: 2px solid blue;
+        overflow-x: hidden;
+        height: 45%;
+        border-top: 2px solid rgba(0, 0, 0, 0.09);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1%;
+        top: 2%;
+      }
+
+      .cartItem {
+        border: 1px solid black;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        height: 20%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+        padding: 1% 0.5%;
+        align-items: center;
+      }
+
+      .itemImage {
+        border: 1px solid red;
+        position: relative;
+        display: flex;
+        left: 1%;
+        justify-content: center;
+        align-items: center;
+        width: 4%;
+        height: 95%;
+      }
+
+      #itemImg {
+        width: 100%;
+      }
+
+      .itemName {
+        border: 1px solid red;
+        position: relative;
+        display: flex;
+        left: 2%;
+        width: 40%;
+        align-items: center;
+        height: 95%;
+      }
+
+      .price_quantity {
+        border: 1px solid red;
+        position: relative;
+        display: flex;
+        left: 45%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        align-items: center;
+        width: 10%;
+      }
+
+      .price, 
+      .quantity {
+        border: 1px solid red;
+        position: relative;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+
+      .order_address {
+        border: 2px solid blue;
+        height: 20%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /* padding: 2% 0%; */
+        border-top: 2px solid rgba(0, 0, 0, 0.09);
+        top: 2%;
+      }
+
+      #payment {
+        border: 1px solid red;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 20%;
+        height: 100%;
+      }
+
+      #address {
+        border: 1px solid red;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 30%;
+        /* justify-content: flex-end; */
+        align-items: flex-end;
+      }
+
+      .order_summary {
+        border: 2px solid blue;
+        height: 13%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        padding: 2% 0%;
+        border-top: 2px solid rgba(0, 0, 0, 0.09);
+        top: 2%;
+      }
+
+      .heading {
+        border: 1px solid red;
+        position: relative;
+        display: flex;
+        //flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .prices {
+        border: 2px solid blue;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 5px;
+        width: 100%;
+        top: 7%;
+      }
+
+      .prices div {
+        /* border: 2px solid blue; */
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      #total {
+        border-top: 2px dotted rgba(0, 0, 0, 0.09);
+        padding: 0.5% 0%;
+      }
+
+      /* This is for mobile */
+    @media (min-width: 550px) and (max-width: 1024px) {
+      html {
+        height: 100%;
+      }
+
+      .brief {
+        height: 15%;
+      }
+
+    .order_cart {
+      height: 40%;
+    }
+
+    #payment {
+      width: 30%;
+    }
+
+    #address {
+      width: 40%;
+    }
+
+      #logoImg {
+        width: 20%;
+        border: 1px solid red;
+      }
+
+      .itemImage {
+            width: 10%; 
+            height: 80%;
+        } 
+
+        .price_quantity {
+            left: 33%;
+            width: 15%; 
+            height: 80%;
+        }
+    } 
+
+       /* This is for mobile */
+      @media (min-width: 0px) and (max-width: 550px) {
+
+        .logo {
+          margin-bottom: 0px;
+        }
+
+        #logoImg {
+          width: 30%;
+        }
+
+        .brief {
+          height: 20%;
+        }
+
+        .brief_1 {
+          font-size: 16px;
+          flex-direction: column;
+        }
+
+        #brief_3 {
+          flex-direction: column;
+          gap: 10px;
+        }
+        
+        #brief_3 hr {
+          display: none;
+        }
+
+        #deliveryDate {
+          //border: 1px solid red;
+          text-align: start;
+          display: flex;
+        }
+
+        #orderDate {
+          /* border: 1px solid red; */
+        }
+        .order_cart {
+        height: 35%;
+        }
+
+        .itemImage {
+            width: 15%; 
+            height: 80%;
+        }
+
+        .itemName {
+            font-size: 14px;
+            width: 40%; 
+            height: 80%;
+            left: 3%;
+        }
+
+        .order_address { 
+          height: 15%
+        }
+
+        .price_quantity {
+            font-size: 14px;
+            left: 15%;
+            width: 25%; 
+            height: 80%;
+        }
+
+        #payment {
+         width: 30%;
+      }
+
+      #address {
+        width: 65%;
+      }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="logo">
+        <img 
+          src="https://drive.google.com/uc?export=download&id=1RbUo9BSAyxfNmzVV_dzjC7E4nT9ZtbnV"
+          alt="test"
+        />
+      </div>
+      <div class="brief">
+        <span class="brief_1">
+          <strong> Order ID: 634148435130 </strong>
+        </span>
+        <div class="message">
+          <span id="salute">Dear Syre Musk,</span>
+          <span id="body">
+              Thank you for ordering, your order has been successfully confirmed. 
+          </span>
+        </div>
+        <div id="brief_3">
+          <span id="orderDate">Order Date: <span><strong>Feb 16, 2022</strong></span></span>
+          <hr />
+          <div id="deliveryDate">
+            <img />
+            <span>Estimated Delivery: May 16, 2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="order_cart">
+      </div>
+      <div class="order_address">
+        <div id="payment">
+          <span><strong>Payment</strong></span>
+          <span>On Delivery</span>
+        </div>
+        <div id="address">
+          <span><strong>Delivery Info</strong></span>
+          <span>847 Jewess Bridge Apt.</span>
+          <span>London, UK</span>
+          <span>+1-474-769-3919</span>
+        </div>
+      </div>
+      <div class="order_summary">
+        <div class="heading">
+          <span><strong>Order Summary</strong></span>
+        </div>
+        <div class="prices">
+          <div>
+            <span>Subtotal</span>
+            <span>$300.00</span>
+          </div>
+          <div>
+            <span>Delivery</span>
+            <span>$0.00</span>
+          </div>
+          <div id="total">
+            <span>Total</span>
+            <span>$300.00</span>
+          </div>
+        </div>
+        
+      </div>
+    </main>
+    <script>
+    const cartList = document.getElementsByClassName('order_cart');
+      const cartItem = () => {
+        return `
+          <div class="cartItem">
+            <div class="itemImage">
+                <img 
+                    id="itemImg"
+                    src="https://drive.google.com/uc?export=download&id=1ZfcsAOOA2vhkmgIVekY8vetMv__2TN9o"
+                    alt="test"
+                />
+            </div>
+            <div class="itemName">
+                <span>Vanilla Cup Cake</span>
+            </div>
+            <div class="price_quantity">
+                <div class="price">
+                    <span>
+                        <strong>N 1,000</strong>
+                    </span>
+                </div>
+                <div class="quantity">
+                    <span>Qty: 2</span>
+                </div>
+            </div>
+        </div>
+        `
+      }
+
+      for (let i = 0; i < 10; i++) {
+        cartList[0].innerHTML += cartItem();
+        //console.log("test: ", cartList[i]);
+      }
+      //console.log("testing: ", cartList)
+      </script>
+  </body>
+</html>
